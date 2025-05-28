@@ -26,6 +26,7 @@ contract HelperConfig is CodeConstants, Script {
         uint32 callbackGasLimit;
         uint256 entranceFee;
         uint256 interval;
+        address account;
     }
 
     NetworkConfig public localNetworkConfig;
@@ -80,7 +81,8 @@ contract HelperConfig is CodeConstants, Script {
             gasLane: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, // Mock gas lane
             callbackGasLimit: 500000, // 500,000 gas
             subscriptionId: 0,
-            link: address(linkToken) // LINK token address for local network
+            link: address(linkToken),// LINK token address for local network
+            account : 0x1804cBab1f12e6BBf3894d4083F33E07309D1f38
         });
     }
 
@@ -93,7 +95,9 @@ contract HelperConfig is CodeConstants, Script {
         gasLane: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae,
         callbackGasLimit: 500000, // 500,000 gas
         subscriptionId: 0,
-        link: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB // LINK token address on Sepolia
+        link: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB,
+        account: address(0) // No specific account for Sepolia
+
     });
 }
 
@@ -105,7 +109,8 @@ function getLocalConfig() public pure returns (NetworkConfig memory) {
         gasLane: "",
         callbackGasLimit: 500000,
         subscriptionId: 0,
-        link: address(0) // No LINK token on local network
+        link: address(0),
+        account: address(0) // No LINK token on local network
     });
 }
 }

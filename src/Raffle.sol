@@ -139,5 +139,13 @@ function performUpkeep(bytes calldata /* performData */) external override {
     return s_players[indexOfPlayer];
   }
 
+  function getLastTimestamp() external view returns(uint256) {
+    return s_lastTimestamp;
+  }
+
+  function getRecentWinner() external view returns(address) {
+    return s_recentWinner;
+  }
+
   
 }
